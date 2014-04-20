@@ -1,0 +1,20 @@
+<%= form_for(@book) do |f| %>
+  <% if @book.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@book.errors.count, "error") %> prohibited this transaction from being saved:</h2>
+
+      <ul>
+      <% @book.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+      Date    : <%= f.date_field :date %> <br>
+      Debit   : <%= f.select :debit, Ledger.all.collect { |p| [ p.name, p.id] } %> <br>
+      Credit  : <%= f.select :credit, Ledger.all.collect { |p| [ p.name, p.id] }, include_blank: true %> <br>
+      Amount  : <%= f.text_field :amount %> <br>
+              <%= f.submit "Create Transaction", class: "btn btn-success btn-small active" %>
+
+<% end %>

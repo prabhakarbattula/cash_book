@@ -1,0 +1,28 @@
+<table class="table-condensed table-bordered table-striped ">
+    <thead>
+        <tr>
+          <th> Ledgers </th>
+          <th> Amount </th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        <tr>
+          <td> Cash </td>
+          <td> <%= number_to_currency(@cash, :unit => 'INR ') %> </td>
+
+        </tr>
+
+        <tr>
+          <td> Bank </td>
+          <td> <%= number_to_currency(@bank, :unit => 'INR ') %> </td>
+        </tr>
+
+        <tr>
+          <td> Total Amount is  </td>
+          <td> <strong> <%= number_to_currency(@cash + @bank, :unit => 'INR ') %> </strong> </td>
+        </tr>
+    </tbody>
+</table>
+

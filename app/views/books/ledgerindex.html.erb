@@ -1,0 +1,46 @@
+<h3 align="center">Listing  <font color="#8a2be2"><%= Ledger.find(@book_params).name %> </font> Ledger</h3>
+<%= link_to 'Back', books_path, class: "btn btn-primary btn-small active" %>
+<%= @cash %>
+<table class="table-condensed table-bordered">
+  <thead>
+    <tr>
+      <th><div align="center"> Date</th>
+      <th><div align="center"> Ledger</th>
+      <th><div align="center"> Debit Amount</th>
+      <th><div align="center"> Credit Amount</th>
+      <th><div align="center"> Balance </th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Op. Bal.</td>
+    <td><div align="right"> <%= number_to_currency(@opening_balance, :unit => 'INR ') %> </div></td>
+  </tr>
+
+    <% @books.each do |book| %>
+      <tr class="success">
+        <%  if book.debit == @book_params %>
+            <td><%= book.date.strftime("%d-%b-%Y") %></td>
+            <td> <%= Ledger.find(book.credit).name  %> </td>
+            <td><div align="right"><%= number_to_currency(book.amount, :unit => 'INR ') %> </div></td>
+            <td> <div align="center"> -- </td>
+            <td> <div align="right"> <%= number_to_currency(@opening_balance = @opening_balance - book.amount, :unit => 'INR ') %></td>
+         <% end %>
+
+        <%  if book.credit == @book_params %>
+            <td><%= book.date.strftime("%d-%b-%Y") %></td>
+            <td> <%= Ledger.find(book.debit).name  %> </td>
+            <td> <div align="center"> -- </td>
+            <td><div align="right"><%= number_to_currency(book.amount, :unit => 'INR ') %></div></td>
+            <td> <div align="right"> <%= number_to_currency(@opening_balance = @opening_balance + book.amount, :unit => 'INR ') %></td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @book.date %>
+</p>
+
+<p>
+  <strong>Debit:</strong>
+  <%= Ledger.where(id: @book.debit).first.name %>
+</p>
+
+<p>
+  <strong>Credit:</strong>
+  <%= Ledger.where(id: @book.credit).first.name %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @book.amount %>
+</p>
+
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
