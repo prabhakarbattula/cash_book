@@ -1,17 +1,18 @@
 Book.create!([
-  {date: "2014-04-19", debit: "1", credit: "2", amount: "75.0"},
-  {date: "2014-04-19", debit: "1", credit: "3", amount: "25.0"},
-  {date: "2014-04-19", debit: "4", credit: "1", amount: "5000.0"},
-  {date: "2014-04-19", debit: "1", credit: "3", amount: "2.75"},
-  {date: "2014-04-19", debit: "1", credit: "5", amount: "16.0"},
-  {date: "2014-04-19", debit: "1", credit: "6", amount: "2500.0"},
-  {date: "2014-04-19", debit: "1", credit: "2", amount: "150.0"},
-  {date: "2014-04-19", debit: "1", credit: "2", amount: "750.0"},
-  {date: "2014-04-19", debit: "1", credit: "4", amount: "1000.0"},
-  {date: "2014-04-19", debit: "1", credit: "4", amount: "500.0"},
-  {date: "2014-04-19", debit: "4", credit: "1", amount: "4000.0"},
-  {date: "2014-04-19", debit: "1", credit: "3", amount: "150.0"},
-  {date: "2014-04-20", debit: "1", credit: "3", amount: "5.5"}
+  {date: "2014-04-19", amount: "75.0", debit_id: 1, credit_id: 2},
+  {date: "2014-04-19", amount: "25.0", debit_id: 1, credit_id: 3},
+  {date: "2014-04-19", amount: "5000.0", debit_id: 4, credit_id: 1},
+  {date: "2014-04-19", amount: "2.75", debit_id: 1, credit_id: 3},
+  {date: "2014-04-19", amount: "16.0", debit_id: 1, credit_id: 5},
+  {date: "2014-04-19", amount: "2500.0", debit_id: 1, credit_id: 6},
+  {date: "2014-04-19", amount: "150.0", debit_id: 1, credit_id: 2},
+  {date: "2014-04-19", amount: "750.0", debit_id: 1, credit_id: 2},
+  {date: "2014-04-19", amount: "1000.0", debit_id: 1, credit_id: 4},
+  {date: "2014-04-19", amount: "500.0", debit_id: 1, credit_id: 4},
+  {date: "2014-04-19", amount: "4000.0", debit_id: 4, credit_id: 1},
+  {date: "2014-04-19", amount: "150.0", debit_id: 1, credit_id: 3},
+  {date: "2014-04-20", amount: "5.5", debit_id: 1, credit_id: 3},
+  {date: "2014-04-20", amount: "5.75", debit_id: 1, credit_id: 5}
 ])
 Ledger.create!([
   {name: "CASH", opening_balance: "10000.0"},

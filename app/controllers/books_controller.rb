@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :ledgerindex]
 
   # GET /books
   # GET /books.json
@@ -8,35 +8,31 @@ class BooksController < ApplicationController
   end
 
   def ledgerindex
-		@book_params = params[:id]
-    @opening_balance = Ledger.find(@book_params).opening_balance
+		@opening_balance = Ledger.find(params[:id]).opening_balance
     @books = Book.all
-
   end
 
   def dashboard
+
 	  @cash = Ledger.find(1).opening_balance
-	  books = Book.all
-	  books.each do |book|
-		  if book.debit == "1"
+	  @bank = Ledger.find(4).opening_balance
+
+
+	  Book.all.each do |book|
+		  if book.debit_id == 1
 			  @cash -= book.amount
-		  elsif book.credit == "1"
+		  elsif book.credit_id == 1
 			  @cash += book.amount
 		  end
 	  end
 
-
-	  @bank = Ledger.find(4).opening_balance
-	  books = Book.all
-	  books.each do |book|
-		  if book.debit == "4"
+	  Book.all.each do |book|
+		  if book.debit_id == 4
 			  @bank -= book.amount
-		  elsif book.credit == "4"
+		  elsif book.credit_id == 4
 			  @bank += book.amount
 		  end
 	  end
-
-
   end
 
 
@@ -102,6 +98,6 @@ class BooksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def book_params
-      params.require(:book).permit(:date, :debit, :credit, :amount)
+      params.require(:book).permit(:date, :debit_id, :credit_id, :amount)
     end
 end

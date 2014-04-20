@@ -1,3 +1,4 @@
 class Book < ActiveRecord::Base
-	has_many :ledgers
+	belongs_to :debit, class_name: "Ledger"
+	belongs_to :credit, class_name: "Ledger"
 end

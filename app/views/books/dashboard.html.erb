@@ -1,6 +1,6 @@
-<table class="table-condensed table-bordered table-striped ">
+<table class="table-condensed table-bordered">
     <thead>
-        <tr>
+        <tr bgcolor="#a9a9a9">
           <th> Ledgers </th>
           <th> Amount </th>
         </tr>
@@ -10,18 +10,18 @@
 
         <tr>
           <td> Cash </td>
-          <td> <%= number_to_currency(@cash, :unit => 'INR ') %> </td>
+          <td> <div align="right"> <%= number_to_currency(@cash, :unit => 'INR ') %> </td>
 
         </tr>
 
         <tr>
           <td> Bank </td>
-          <td> <%= number_to_currency(@bank, :unit => 'INR ') %> </td>
+          <td> <div align="right"> <%= number_to_currency(@bank, :unit => 'INR ') %> </td>
         </tr>
 
         <tr>
           <td> Total Amount is  </td>
-          <td> <strong> <%= number_to_currency(@cash + @bank, :unit => 'INR ') %> </strong> </td>
+          <td> <div align="right"> <strong> <%= number_to_currency(@cash + @bank, :unit => 'INR ') %> </strong> </td>
         </tr>
     </tbody>
 </table>

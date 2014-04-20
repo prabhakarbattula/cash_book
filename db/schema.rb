@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140420074637) do
+ActiveRecord::Schema.define(version: 20140420135822) do
 
   create_table "books", force: true do |t|
     t.date     "date"
-    t.string   "debit"
-    t.string   "credit"
     t.decimal  "amount"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "debit_id"
+    t.integer  "credit_id"
   end
 
   create_table "ledgers", force: true do |t|

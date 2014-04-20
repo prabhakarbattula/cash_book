@@ -7,12 +7,12 @@
 
 <p>
   <strong>Debit:</strong>
-  <%= Ledger.where(id: @book.debit).first.name %>
+  <%= Ledger.find(@book.debit_id).name %>
 </p>
 
 <p>
   <strong>Credit:</strong>
-  <%= Ledger.where(id: @book.credit).first.name %>
+  <%= Ledger.find(@book.credit_id).name %>
 </p>
 
 <p>
