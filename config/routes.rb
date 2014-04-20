@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :ledgers
+
+	root 'books#dashboard'
+
+	resources :ledgers
 
   resources :books do
 	  member do
