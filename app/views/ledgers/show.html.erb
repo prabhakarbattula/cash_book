@@ -5,5 +5,20 @@
   <%= @ledger.name %>
 </p>
 
-<%= link_to 'Edit', edit_ledger_path(@ledger) %> |
-<%= link_to 'Back', ledgers_path %>
+<p>
+  <strong>Opening Balance:</strong>
+  <%= number_to_currency(@ledger.opening_balance, unit: "INR ") %>
+</p>
+
+<p>
+  <small>Created at:
+  <%= @ledger.created_at %> </small>
+</p>
+
+<p>
+  <small>Updated at:
+    <%= @ledger.updated_at %> </small>
+</p>
+
+<%= link_to 'Edit', edit_ledger_path(@ledger), class: "btn btn-mini btn-warning active" %> |
+<%= link_to 'Back', ledgers_path, class: "btn btn-mini btn-primary active" %>

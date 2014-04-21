@@ -15,7 +15,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+  <div class="field">
+    <%= f.label :opening_balance %><br>
+    <%= f.text_field :opening_balance, value: 0.00 %>
   </div>
+
+    <%= f.submit "Create Transaction", class: "btn btn-success btn-small active" %>
 <% end %>
