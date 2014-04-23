@@ -31,6 +31,10 @@ gem 'table_print'
 gem 'spring',        group: :development
 gem 'seed_dump'
 
+group :development do
+	gem 'guard-minitest'
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
