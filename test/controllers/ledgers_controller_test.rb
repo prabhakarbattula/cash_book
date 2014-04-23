@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class LedgersControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class LedgersControllerTest < ActionController::TestCase
     assert_redirected_to ledgers_path
   end
 end
+=end

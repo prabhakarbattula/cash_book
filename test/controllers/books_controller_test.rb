@@ -1,3 +1,4 @@
+=begin
 require 'test_helper'
 
 class BooksControllerTest < ActionController::TestCase
@@ -47,3 +48,4 @@ class BooksControllerTest < ActionController::TestCase
     assert_redirected_to books_path
   end
 end
+=end

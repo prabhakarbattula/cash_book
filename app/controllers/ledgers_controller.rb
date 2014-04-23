@@ -54,10 +54,10 @@ class LedgersController < ApplicationController
   # DELETE /ledgers/1
   # DELETE /ledgers/1.json
   def destroy
-	    if Book.find_by_debit_id(@ledger).present? || Book.find_by_credit_id(@ledger).present?
-		    flash[:error] = 'Ledger cannot be deleted as it has transactions involving it'
-		    redirect_to ledgers_path
-			else
+		  if Book.find_by_debit_id(@ledger).present? || Book.find_by_credit_id(@ledger).present?
+			  flash[:error] = 'Ledger cannot be deleted as it has transactions involving it'
+			  redirect_to ledgers_path
+		  else
 		    @ledger.destroy
 		    respond_to do |format|
 		      format.html { redirect_to ledgers_url }
