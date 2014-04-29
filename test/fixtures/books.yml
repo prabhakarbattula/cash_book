@@ -1,13 +1,31 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 2014-04-19
-  debit: MyString
-  credit: MyString
-  amount: 9.99
+  date: 2014-04-23
+  debit_id: '1'
+  credit_id: '2'
+  amount: 0
 
 two:
-  date: 2014-04-19
-  debit: MyString
-  credit: MyString
-  amount: 9.99
+  date:
+  debit_id: '1'
+  credit_id: '2'
+  amount: 1
+
+three:
+  date: 2014-04-23
+  debit_id:
+  credit_id: '2'
+  amount: 1
+
+four:
+  date: 2014-04-23
+  debit_id: '2'
+  credit_id:
+  amount: 1
+
+five:
+  date: 2014-04-23
+  debit_id: '1'
+  credit_id: '2'
+  amount: 1
