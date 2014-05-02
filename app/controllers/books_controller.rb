@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy, :ledgerindex]
+	before_action :authenticate_user!
+	before_action :set_book, only: [:show, :edit, :update, :destroy, :ledgerindex]
 
   # GET /books
   # GET /books.json
@@ -22,26 +23,28 @@ class BooksController < ApplicationController
   end
 
   def dashboard
+			if user_signed_in?
+				  @cash = Ledger.find(1).opening_balance
+				  @bank = Ledger.find(4).opening_balance
 
-	  @cash = Ledger.find(1).opening_balance
-	  @bank = Ledger.find(4).opening_balance
+				  Book.all.each do |book|
+					  if book.debit_id == 1
+						  @cash -= book.amount
+					  elsif book.credit_id == 1
+						  @cash += book.amount
+					  end
+				  end
 
-
-	  Book.all.each do |book|
-		  if book.debit_id == 1
-			  @cash -= book.amount
-		  elsif book.credit_id == 1
-			  @cash += book.amount
-		  end
-	  end
-
-	  Book.all.each do |book|
-		  if book.debit_id == 4
-			  @bank -= book.amount
-		  elsif book.credit_id == 4
-			  @bank += book.amount
-		  end
-	  end
+				  Book.all.each do |book|
+					  if book.debit_id == 4
+						  @bank -= book.amount
+					  elsif book.credit_id == 4
+						  @bank += book.amount
+					  end
+				  end
+			else
+				redirect_to dashboard_books_path
+			end
   end
 
 

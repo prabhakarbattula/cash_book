@@ -66,6 +66,21 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span9">
+
+          <div id="user_nav">
+
+            <% if user_signed_in? %>
+                Signed in as <%= current_user.email %>. Not you?
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-small btn-danger active" %>
+            <% else %>
+                <%= link_to "Sign up", new_user_registration_path %> |
+                <%= link_to "Login", new_user_session_path  %>
+            <% end %>
+
+            <%= link_to "Change your password", edit_user_registration_path, :class => "btn btn-small btn-warning active" %>
+          </div>
+          <hr>
+
           <%= bootstrap_flash %>
           <%= yield %>
         </div>
