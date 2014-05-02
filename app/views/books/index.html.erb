@@ -1,7 +1,18 @@
-<h3 align="center">Cash Book</h3>
-
+<h4 align="center">Cash Book</h4>
 <%= link_to 'New Transaction', new_book_path, class: "btn btn-success btn-small active" %>
 <hr>
+<form class="form-horizontal">
+<%= form_tag(books_path, method: "get") do %>
+    <%= label_tag(:starting, "Starting Date :") %>
+    <%= date_field_tag :starting, params[:starting] %>
+    <%= label_tag(:ending, "Ending Date :") %>
+    <%= date_field_tag :ending, params[:ending] %>
+    <%= submit_tag("Search", class: "btn btn-primary btn-small active") %>
+<% end %>
+
+</form>
+<hr>
+
 <table class="table-condensed table-bordered">
   <thead>
     <tr bgcolor="#a9a9a9">

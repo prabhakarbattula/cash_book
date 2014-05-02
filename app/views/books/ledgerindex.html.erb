@@ -1,6 +1,17 @@
 <h3 align="center">Listing  <font color="#8a2be2"><%= Ledger.find(params[:id]).name %> </font> Ledger</h3>
 <%= link_to 'Back', books_path, class: "btn btn-primary btn-small active" %>
 <%= @cash %>
+<hr>
+<form class="form-horizontal">
+  <%= form_tag(books_path, method: "get") do %>
+      <%= label_tag(:starting, "Starting Date :") %>
+      <%= date_field_tag :starting, params[:starting] %>
+      <%= label_tag(:ending, "Ending Date :") %>
+      <%= date_field_tag :ending, params[:ending] %>
+      <%= submit_tag("Search", class: "btn btn-primary btn-small active") %>
+  <% end %>
+</form>
+<hr>
 <table class="table table-condensed table-bordered">
   <thead>
     <tr bgcolor="#a9a9a9">

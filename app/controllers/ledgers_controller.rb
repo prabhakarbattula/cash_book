@@ -5,7 +5,7 @@ class LedgersController < ApplicationController
   # GET /ledgers.json
   def index
     @ledgers = Ledger.all.order("name")
-  end
+	end
 
   # GET /ledgers/1
   # GET /ledgers/1.json

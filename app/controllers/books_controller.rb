@@ -4,12 +4,21 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = Book.all
+
+    if params[:starting].present?
+	    @books = Book.where("date >= ? AND date <= ?", params[:starting], params[:ending]).order("date")
+    else
+			@books = Book.all.order("date")
+		end
   end
 
   def ledgerindex
 		@opening_balance = Ledger.find(params[:id]).opening_balance
-    @books = Book.all
+		if params[:starting].present?
+			@books = Book.where("date >= ? AND date <= ?", params[:starting], params[:ending]).order("date")
+		else
+			@books = Book.all.order("date")
+		end
   end
 
   def dashboard
