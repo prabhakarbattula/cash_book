@@ -3,14 +3,14 @@
   <component name="DataSourceManagerImpl" format="xml" hash="4222268784">
     <data-source source="LOCAL" name="Rails cashbook: development" uuid="914f5f06-cb57-48f6-90cd-4e136bc58f71">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:cashbook_development</jdbc-url>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails cashbook: test" uuid="432fb115-2d86-4d06-b3cd-d1cdcb0189af">
       <driver-ref>sqlite.xerial</driver-ref>
-      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/test.sqlite3</jdbc-url>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql:cashbook_test</jdbc-url>
       <libraries />
     </data-source>
   </component>
