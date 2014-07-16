@@ -1,18 +1,21 @@
 Rails.application.routes.draw do
 
   devise_for :users
-	root 'books#dashboard'
+
+	root 'books#welcome'
 
 	resources :ledgers
 
   resources :books do
 	  member do
 	    get 'ledgerindex'
-	  end
+      	  end
 
 	  collection do
 		  get 'dashboard'
-	  end
+	    get 'welcome'
+    end
+    
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

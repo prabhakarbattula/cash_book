@@ -1,5 +1,5 @@
 class LedgersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:index]
   before_action :set_ledger, only: [:show, :edit, :update, :destroy]
 
   # GET /ledgers
