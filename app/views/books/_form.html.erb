@@ -11,7 +11,7 @@
     </div>
   <% end %>
 
-      Date    : <%= f.date_field :date %> <br>
+      Date    : <%= f.date_select :date %> <br>
       Debit   : <%= f.select :debit_id, Ledger.all.collect { |p| [ p.name, p.id] } %> <br>
       Credit  : <%= f.select :credit_id, Ledger.all.collect { |p| [ p.name, p.id] }, include_blank: true %> <br>
       Amount  : <%= f.text_field :amount %> <br>

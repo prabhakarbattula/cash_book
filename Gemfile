@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.rc1'
+gem 'rails'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 gem 'pg'
@@ -37,6 +37,7 @@ group :development do
 end
 
 gem 'devise'
+gem 'bootstrap-datepicker-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

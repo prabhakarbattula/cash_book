@@ -49,9 +49,10 @@
           <a class="brand" href="#">Cashbook</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
-              <li><%=  link_to "Home", dashboard_books_path %></li>
+              <li><%=  link_to "Home", welcome_books_path %></li>
               <li><%= link_to "Ledgers", ledgers_path %></li>
               <li><%= link_to "Day Book", books_path  %></li>
+              <li><%= link_to "Dash Board", dashboard_books_path %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -61,24 +62,25 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
-          <div class="hero-unit">
-          <p align="justify"> <font face="verdana" color="green"> This is a simple accounting based on the well established double entry book keeping for small entities ... </font> </p>
-          </div><!--/.well -->
-        </div><!--/span-->
+
+
+        </div>
         <div class="span9">
 
-          <div id="user_nav">
+          <div id="user_nav" align="right">
 
             <% if user_signed_in? %>
                 Signed in as <%= current_user.email %>. Not you?
                 <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-small btn-danger active" %>
             <% else %>
-                <%= link_to "Sign up", new_user_registration_path %> |
-                <%= link_to "Login", new_user_session_path  %>
+                <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-small btn-normal active" %> |
+                <%= link_to "Login", new_user_session_path, :class => "btn btn-small btn-success active"  %>
             <% end %>
 
-            <%= link_to "Change your password", edit_user_registration_path, :class => "btn btn-small btn-warning active" %>
+            <%= link_to "Change your password", edit_user_registration_path, :class => "btn btn-small btn-normal active" %>
+            
           </div>
+
           <hr>
 
           <%= bootstrap_flash %>
@@ -86,9 +88,10 @@
         </div>
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2014</p>
-      </footer>
+
+      <div class="navbar navbar-fixed-bottom">
+        <p>&copy; Prabhakar Battula & Co. 2014 </p>
+      </div>
 
     </div> <!-- /container -->
 

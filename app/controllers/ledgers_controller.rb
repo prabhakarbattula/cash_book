@@ -1,5 +1,5 @@
 class LedgersController < ApplicationController
-	before_action :authenticate_user!
+	before_action :authenticate_user!, only: [:index]
   before_action :set_ledger, only: [:show, :edit, :update, :destroy]
 
   # GET /ledgers
@@ -75,6 +75,6 @@ class LedgersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ledger_params
-      params.require(:ledger).permit(:name)
+      params.require(:ledger).permit(:name, :opening_balance)
     end
 end

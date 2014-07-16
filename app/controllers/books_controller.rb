@@ -1,11 +1,10 @@
 class BooksController < ApplicationController
-	before_action :authenticate_user!
-	before_action :set_book, only: [:show, :edit, :update, :destroy, :ledgerindex]
+	before_action :authenticate_user!, only: [:index]
+	before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   # GET /books
   # GET /books.json
   def index
-
     if params[:starting].present?
 	    @books = Book.where("date >= ? AND date <= ?", params[:starting], params[:ending]).order("date")
     else
@@ -19,13 +18,15 @@ class BooksController < ApplicationController
 			@books = Book.where("date >= ? AND date <= ?", params[:starting], params[:ending]).order("date")
 		else
 			@books = Book.all.order("date")
+			@book = Book.find_by_id(params[:id])
 		end
   end
 
   def dashboard
 			if user_signed_in?
-				  @cash = Ledger.find(1).opening_balance
-				  @bank = Ledger.find(4).opening_balance
+				if Ledger.find_by_name("cash").present? || Ledger.find_by_name("bank").present?
+					@cash = Ledger.find_by_name("cash").opening_balance
+				  @bank = Ledger.find_by_name("bank").opening_balance
 
 				  Book.all.each do |book|
 					  if book.debit_id == 1
@@ -36,12 +37,18 @@ class BooksController < ApplicationController
 				  end
 
 				  Book.all.each do |book|
-					  if book.debit_id == 4
+					  if book.debit_id == 2
 						  @bank -= book.amount
-					  elsif book.credit_id == 4
+					  elsif book.credit_id == 2
 						  @bank += book.amount
 					  end
 				  end
+				else
+					Ledger.create(name: "cash", opening_balance: 0)
+					Ledger.create(name: "bank", opening_balance: 0)
+
+					redirect_to dashboard_books_path
+				end
 			else
 				redirect_to dashboard_books_path
 			end
