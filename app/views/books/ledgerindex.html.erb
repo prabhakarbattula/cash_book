@@ -27,25 +27,25 @@
   <tr>
 
     <td colspan="4"><div align="right"> Opening Balance</td>
-    <td><div align="right"> <%= number_to_currency(@opening_balance, :unit => 'INR ') %> </div></td>
+    <td> <div align="right"> <%= number_to_currency(@opening_balance, :unit => 'INR ') %> </div> </td>
   </tr>
 
     <% @books.each do |book| %>
       <tr>
-        <%  if book.debit_id == @book.try(:id) %>
-            <td><%= book.date.strftime("%d-%b-%Y") %></td>
+        <%  if book.debit_id == @book.id %>
+            <td> <%= book.date.strftime("%d-%b-%Y") %> </td>
             <td> <%= book.credit.name  %> </td>
-            <td><div align="right"><%= number_to_currency(book.amount, :unit => 'INR ') %> </div></td>
+            <td> <div align="right"> <%= number_to_currency(book.amount, :unit => 'INR ') %> </div></td>
             <td> <div align="center"> -- </td>
-            <td> <div align="right"> <%= number_to_currency(@opening_balance = @opening_balance - book.amount, :unit => 'INR ') %></td>
+            <td> <div align="right"> <%= number_to_currency(@opening_balance = @opening_balance - book.amount, :unit => 'INR ') %> </td>
         <% end %>
 
-        <%  if book.credit_id == @book.try(:id) %>
-            <td><%= book.date.strftime("%d-%b-%Y") %></td>
+        <%  if book.credit_id == @book.id %>
+            <td> <%= book.date.strftime("%d-%b-%Y") %> </td>
             <td> <%= book.debit.name  %> </td>
             <td> <div align="center"> -- </td>
-            <td><div align="right"><%= number_to_currency(book.amount, :unit => 'INR ') %></div></td>
-            <td> <div align="right"> <%= number_to_currency(@opening_balance = @opening_balance + book.amount, :unit => 'INR ') %></td>
+            <td> <div align="right"> <%= number_to_currency(book.amount, :unit => 'INR ') %></div> </td>
+            <td> <div align="right"> <%= number_to_currency(@opening_balance = @opening_balance + book.amount, :unit => 'INR ') %> </td>
         <% end %>
 
       </tr>

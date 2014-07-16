@@ -52,6 +52,7 @@
               <li><%=  link_to "Home", welcome_books_path %></li>
               <li><%= link_to "Ledgers", ledgers_path %></li>
               <li><%= link_to "Day Book", books_path  %></li>
+              <li><%= link_to "Dash Board", dashboard_books_path %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -61,13 +62,12 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span3">
-          <div class="hero-unit">
-          <p align="justify"> <font face="verdana" color="green"> This is a simple accounting based on the well established double entry book keeping for small entities ... </font> </p>
-          </div><!--/.well -->
-        </div><!--/span-->
+
+
+        </div>
         <div class="span9">
 
-          <div id="user_nav">
+          <div id="user_nav" align="right">
 
             <% if user_signed_in? %>
                 Signed in as <%= current_user.email %>. Not you?
@@ -88,9 +88,10 @@
         </div>
       </div><!--/row-->
 
-      <footer>
-        <p>&copy; Company 2014</p>
-      </footer>
+
+      <div class="navbar navbar-fixed-bottom">
+        <p>&copy; Prabhakar Battula & Co. 2014 </p>
+      </div>
 
     </div> <!-- /container -->
 
