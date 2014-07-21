@@ -17,3 +17,5 @@
 
 # Ignoring ruby mine files.
 /.idea/workspace.xml
+/.idea/.generators
+/.idea/cashbook.iml
