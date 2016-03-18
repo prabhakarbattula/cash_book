@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140502064404) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "books", force: true do |t|
+  create_table "books", force: :cascade do |t|
     t.date     "date"
     t.decimal  "amount"
     t.datetime "created_at"
@@ -25,14 +25,14 @@ ActiveRecord::Schema.define(version: 20140502064404) do
     t.integer  "credit_id"
   end
 
-  create_table "ledgers", force: true do |t|
+  create_table "ledgers", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "opening_balance"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

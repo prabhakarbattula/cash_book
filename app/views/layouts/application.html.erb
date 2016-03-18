@@ -46,9 +46,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Cashbook</a>
+          <a class="brand" href="#">My Cashbook</a>
           <div class="container-fluid nav-collapse">
-            <ul class="nav">
+              <ul class="nav nav-tabs">
               <li><%=  link_to "Home", welcome_books_path %></li>
               <li><%= link_to "Ledgers", ledgers_path %></li>
               <li><%= link_to "Day Book", books_path  %></li>
@@ -71,7 +71,7 @@
 
             <% if user_signed_in? %>
                 Signed in as <%= current_user.email %>. Not you?
-                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-small btn-danger active" %>
+                <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-small btn-danger active" %>                
             <% else %>
                 <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-small btn-normal active" %> |
                 <%= link_to "Login", new_user_session_path, :class => "btn btn-small btn-success active"  %>
@@ -90,7 +90,7 @@
 
 
       <div class="navbar navbar-fixed-bottom">
-        <p>&copy; Prabhakar Battula & Co. 2014 </p>
+        <p>&copy; Prabhakar Battula & Co. 2016 </p>
       </div>
 
     </div> <!-- /container -->

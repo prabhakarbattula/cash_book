@@ -1,9 +1,11 @@
 @import "twitter/bootstrap/bootstrap";
-@import "twitter/bootstrap/responsive";
 
-// Set the correct sprite paths
-@iconSpritePath: image-url("twitter/bootstrap/glyphicons-halflings.png");
-@iconWhiteSpritePath: image-url("twitter/bootstrap/glyphicons-halflings-white.png");
+// Set correct font paths
+@glyphiconsEotPath: font-url("glyphicons-halflings-regular.eot");
+@glyphiconsEotPath_iefix: font-url("glyphicons-halflings-regular.eot?#iefix");
+@glyphiconsWoffPath: font-url("glyphicons-halflings-regular.woff");
+@glyphiconsTtfPath: font-url("glyphicons-halflings-regular.ttf");
+@glyphiconsSvgPath: font-url("glyphicons-halflings-regular.svg#glyphicons_halflingsregular");
 
 // Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
 @fontAwesomeEotPath: font-url("fontawesome-webfont.eot");
@@ -16,7 +18,7 @@
 @import "fontawesome/font-awesome";
 
 // Glyphicons
-//@import "twitter/bootstrap/sprites.less";
+//@import "twitter/bootstrap/glyphicons.less";
 
 // Your custom LESS stylesheets goes here
 //
@@ -27,37 +29,4 @@
 // See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
 //
 // Example:
-// @linkColor: #ff0000;
-
-@tableBorder: #c7254e;
-@tableBackground: #D4D4E3;
-@navbarBackground: #2E64FE;
-@bodyBackground: #2E6;
-@textColor: #0B0B3B;
-
-body {
-
-  background-attachment: fixed;
-  background-image: url('calc.jpeg');
-  background-repeat: repeat-y;
-  background-position: left bottom;
-
-}
-
-.hero-unit {
-  height: 100%;
-  min-height: 100px;
-  padding: 60px;
-  margin-bottom: 30px;
-  font-size: 20px;
-  font-weight: 200;
-  line-height: 30px;
-  text-align: center;
-  vertical-align: middle;
-  color: inherit;
-  background-color: powderblue;
-  background-image: url('../img/calc.jpeg');
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-}
+// @link-color: #ff0000;
