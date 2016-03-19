@@ -16,9 +16,6 @@
       <tr>
         <td><%= ledger.name %></td>
         <td><div align="right"><%= number_to_currency(ledger.opening_balance, :unit => 'INR ') %></td>
-        <% if false %>
-            <td><div align="center"><%= link_to 'Show', ledger, class: "btn btn-mini btn-info active" %></td>
-        <% end %>
         <td><div align="center"><%= link_to 'Edit', edit_ledger_path(ledger), class: "btn btn-mini btn-warning active" %></td>
         <td><div align="center"><%= link_to 'Destroy', ledger, method: :delete, class: "btn btn-mini btn-danger active", data: { confirm: 'Are you sure?' } %></td>
       </tr>
