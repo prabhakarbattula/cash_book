@@ -17,7 +17,7 @@
         <label for="date" class="control-label col-xs-4">Date :</label>
         <div class="col-xs-8">
             <input type="Date" class="form-control" id="date"
-            <%= f.date_field :date, :value => Time.now.strftime("%Y-%m-%d") %>
+            <%= f.date_field :date %>
         </div>        
     </div>
 
@@ -55,8 +55,12 @@
 
     <div class="form-group">
         <div class="col-xs-12" align="right">
-        <%= f.submit "Create Transaction", class: "btn btn-success btn-small active" %>
-            
+          <% @status = params[:action]%>
+          <% if @status == "edit" %>
+              <%= f.submit "Update Transaction", class: "btn btn-success btn-small active" %>
+          <% else %>
+              <%= f.submit "Create Transaction", class: "btn btn-success btn-small active" %>
+          <% end %>
         </div>
     </div>
 

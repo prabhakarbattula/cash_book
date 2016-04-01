@@ -16,6 +16,7 @@ class LedgersController < ApplicationController
   # GET /ledgers/new
   def new
     @ledger = Ledger.new
+    @ledger.opening_balance = 0.00
   end
 
   # GET /ledgers/1/edit

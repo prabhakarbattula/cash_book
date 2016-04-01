@@ -18,8 +18,12 @@
 
   <div class="field">
     <%= f.label :opening_balance %><br>
-    <%= f.text_field :opening_balance, value: 0.00 %>
+    <%= f.text_field :opening_balance%>
   </div>
-
+    <% @status = params[:action]%>
+    <% if @status == "edit" %>
+    <%= f.submit "Update Transaction", class: "btn btn-success btn-small active" %>
+    <% else %>
     <%= f.submit "Create Transaction", class: "btn btn-success btn-small active" %>
+    <% end %>
 <% end %>

@@ -63,6 +63,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @book.date = Time.now.strftime("%Y-%m-%d")
   end
 
   # GET /books/1/edit
